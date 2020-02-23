@@ -1,28 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
 	<title>Open Modeling Framework</title>
-	<meta charset='utf-8'>
-	<meta name='description' content='The Open Modeling Framework (OMF), a web application for simulating power systems behavior with an emphasis on cost-benefit analysis of emerging technologies: distributed generation, storage, networked controls, etc.'>
-	<style type='text/css'>
-		div#container {clear:both; position:relative; margin:0 auto; padding:0; width:1024px; height:500px}
-		div#pusherRobot {float:left; height:50%; margin-bottom:-250px;}
-		div.subContainer {margin:0; display:inline-block; width:50%;height:100%; text-align: center}
-		div#advertisingFrame {float:left; border-radius: 25px; color:white; text-align:center; line-height: 500px; background-image:url('/static/gridAbstract.png'); background-size:500px;}
-		div#login {float:right}
-		p#loginTitle {font-size:24pt; width:100%; text-align:center; padding-top:85px;}
-		form#loginForm {font-size:16pt}
-		input, button, label {margin-bottom:10px; font-size:16pt; padding:5px}
-		input[type='text'], input[type='password'] {width:300px}
-		label#remember {margin-left:75px; color:gray}
-		div#subLinks {display:inline-block;position:absolute;bottom:-60px;left:-30px;line-height:50px}
-		a.menuEntry {display:inline-block; font-size:18pt; color:gray; margin:0px; padding:7px 10px 7px 10px; text-decoration:none;}
-		a.menuEntry:hover {color:black;}
-		a.forgotPWD {display:inline-block; font-size:14pt; margin-top:-10px; padding:7px 10px 7px 10px; text-decoration:none;}
-		a.forgotPWD:hover {color:black;}
-		a.quickNew {display:inline-block; font-size:14pt;margin-left:-5px; margin-top:-10px; padding:7px 10px 7px 10px; text-decoration:none;}
-		a.quickNew:hover {color:black;}
-		a {text-decoration:none;}
-	</style>
+	<!-- CSS -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='web_files/css/main.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='web_files/css/shared.css') }}">
+	<!-- Favicon --> 
+	<!-- <link rel="icon" type="image/png" href="{{ url_for('static', filename='web_files/img/favicon.png') }}" /> -->
 	<link rel='shortcut icon' href='/static/favicon.ico'>
+	<!-- integration -->
+	<meta name='description' content='The Open Modeling Framework (OMF), a web application for simulating power systems behavior with an emphasis on cost-benefit analysis of emerging technologies: distributed generation, storage, networked controls, etc.'>
 	<script type='text/javascript'>
 		function validateEmail(email) {
 			var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -31,50 +19,187 @@
 
 		function forgotPassword() {
 			var email = prompt('Enter your email address and a password reset link will be sent to you.')
-			if (email == null) {
-				return
-			}
-			else if (validateEmail(email)) {
-				window.location.href = '/forgotPassword/' + email
-			} else {
-				alert("Sorry, but that is not a valid email address.")
-			}
+			if (email == null) { return }
+			else if (validateEmail(email)) { window.location.href = '/forgotPassword/' + email } 
+			else { alert("Sorry, but that is not a valid email address.") }
 		}
 
 		function newAccount() {
 			var email = prompt('Enter an email address to identify your account.\n\nWe will log you in and email you a temporary password.\n\nBy creating an account you confirm that you have read and accept the privacy policy [1] and terms of use [2].\n\n[1] https://github.com/dpinney/omf/blob/master/Privacy%20Policy.txt\n\n[2] https://github.com/dpinney/omf/blob/master/Terms%20of%20Use.txt')
-			if (email == null) {
-				return
-			}
-			else if (validateEmail(email)) {
-				window.location.href = '/fastNewUser/' + email + window.location.search
-			} else {
-				alert('Sorry, but that is not a valid email address.')
-			}
+			if (email == null) { return }
+			else if (validateEmail(email)) { window.location.href = '/fastNewUser/' + email + window.location.search } 
+			else { alert('Sorry, but that is not a valid email address.') }
 		}
 	</script>
 </head>
 <body>
-	<div id='pusherRobot'></div>
-	<div id='container'>
-		<div class='subContainer' id='advertisingFrame'>
-			<div id='subLinks'>
-				<a class='menuEntry' id='docsEntry' href='https://github.com/dpinney/omf/wiki'>✑ Documentation</a>
-				<a class='menuEntry' id='discussionEntry' href='https://groups.google.com/forum/#!forum/open-modeling-framework-forum'>✉ Discussion</a>
-				<a class='menuEntry' id='developerEntry' href='https://github.com/dpinney/omf'>∯ Development</a>
-			</div>
+	<div id="header2">
+		<div id="logo_container2">
+			<a href="#"><img src="{{ url_for('static', filename='web_files/img/logo.svg') }}" alt=""></a>
 		</div>
-		<div class='subContainer' id='login'>
-			<p id='loginTitle'>Open Modeling Framework</p>
-			<form id='loginForm' name='loginForm' method='POST' action='login'>
-				<input type='hidden' id='next' name='next' value='{{ next }}' />
-				<input type='text' placeholder='Email' name='username' id='username' required autofocus><br/>
-				<input type='password' placeholder='Password' name='password' id='password'><br/>
-				<button type='submit'>Login</button>
-				<label id='remember'>Remember Me <input name="remember" type='checkbox' checked></label>
-			</form>
-			<a class='forgotPWD' href="#" id="forgotpwd" onclick="forgotPassword()">Forgot Password?</a>
-			<a class='quickNew' href="#" id="requestAccess" onclick="newAccount()">Create Account?</a>
+		<div class="header_links">
+			<span><a class="white_link" href="#">LOGIN</a></span>
+			<span><a class="white_link" href="#about">ABOUT</a></span>
+			<span><a class="white_link" href="#models">MODELS</a></span>
+			<span><a class="white_link" href="#partners">PARTNERS</a></span>
 		</div>
 	</div>
+	<header>
+		<div id="logo_container">
+			<img src="{{ url_for('static', filename='web_files/img/logo.svg') }}" id="logo">
+		</div>
+		<div id="header_slice"></div>
+
+		<div class="header_links">
+			<span><a class="white_link" href="#about">ABOUT</a></span>
+			<span><a class="white_link" href="#models">MODELS</a></span>
+			<span><a class="white_link" href="#partners">PARTNERS</a></span>
+		</div>
+
+		<div id="login">
+			<!-- <div> -->
+				<form id='loginForm' name='loginForm' method='POST' action='login' style="display: flex; flex-direction: row;">
+					<input type='hidden' id='next' name='next' value='{{ next }}' />
+					<input type='text' placeholder='Email' name='username' id='username' required autofocus><br/>
+					<input type='password' placeholder='Password' name='password' id='password'><br/>
+					<button type='submit' class="button">Login</button>
+					<!-- <label id='remember'>Remember Me <input name="remember" type='checkbox' checked></label> -->
+				</form>
+			<!-- </div> -->
+			<div>
+				<div class="button" style="padding-left:28.5px; padding-right:28.5px" onclick="forgotPassword()">Forgot Password?</div>
+				<div class="button" style="padding-left:28.5px; padding-right:28.5px" onclick="newAccount()">Create Account?</div>
+			</div>
+			<!-- <div>
+				<input type="text" placeholder="Email">
+				<input type="password" placeholder="Password">
+				<a href="my_models.html"><span class="button">Login</span></a>
+			</div>
+			<div>
+				<div class="button" style="padding-left:28.5px; padding-right:28.5px">Reset password</div>
+				<div class="button" style="padding-left:28.5px; padding-right:28.5px">Create free account</div>
+			</div> -->
+		</div>
+	</header>
+	<div id="below_header">
+	
+	<div id="about">
+		<div class="banner"></div>
+		<span class="banner_words">Welcome!</span>
+		<div class="section_content" id="about_info">
+			<p>The Open Modeling Framework is a platform that simulates power systems behavior with an emphasis on cost-benefit analysis of emerging technologies. The platform includes programs that model distributed generation, storage, and networked controls.</p>
+
+			<p>Our documentation is available <a class="inline_link" href="#">here</a>, discussions and questions can be posted <a class="inline_link" href="#">here</a>. If you are interested in seeing our code, or would like to download the framework locally, the full code base along with installation instructions can be found <a class="inline_link" href="#">here</a>.</p>
+
+			<p>Since 2012, the OMF has worked with both public and private partners across the industry to transform cutting-edge research into applications that can be used by utilities and grid engineers. Our partners include The Department of Energy, Carnegie Mellon University, and a number of national labs.</p>
+		</div>
+	</div>
+	<div id="models">
+		<div class="banner"></div>
+		<span class="banner_words">Models</span>
+		<div class="section_content" id="model_section_content">
+			<div class="model_group_container">
+				<div class="model_img_container">
+					<img src="{{ url_for('static', filename='web_files/img/phaseBalance.png') }}" class="static" alt="">
+					<img src="{{ url_for('static', filename='web_files/img/test.gif') }}" class="gif" alt="">
+				</div>
+				<div class="model_group_info_container">
+					<div class="model_group_info">
+						<h1>DISTRIBUTION ANALYSIS</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis accusamus sed aliquid, sit assumenda facere aperiam voluptate nemo dolorem, eaque ex, rerum? Doloribus a veritatis nemo hic modi. Quasi, reiciendis.</p>
+					</div>
+				</div>
+			</div>
+			<div class="model_group_container">
+				<div class="model_group_info_container">
+					<div class="model_group_info">
+						<h1>TRANSMISSION ANALYSIS</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis accusamus sed aliquid, sit assumenda facere aperiam voluptate nemo dolorem, eaque ex, rerum? Doloribus a veritatis nemo hic modi. Quasi, reiciendis.</p>
+					</div>
+				</div>
+				<div class="model_img_container">
+					<img src="{{ url_for('static', filename='web_files/img/phaseBalance.png') }}" class="static" alt="">
+					<img src="{{ url_for('static', filename='web_files/img/test.gif') }}" class="gif" alt="">
+				</div>
+			</div>
+			<div class="model_group_container">
+				<div class="model_img_container">
+					<img src="{{ url_for('static', filename='web_files/img/phaseBalance.png') }}" class="static" alt="">
+					<img src="{{ url_for('static', filename='web_files/img/test.gif') }}" class="gif" alt="">
+				</div>
+				<div class="model_group_info_container">
+					<div class="model_group_info">
+						<h1>RESILIENT DESIGN</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis accusamus sed aliquid, sit assumenda facere aperiam voluptate nemo dolorem, eaque ex, rerum? Doloribus a veritatis nemo hic modi. Quasi, reiciendis.</p>
+					</div>
+				</div>
+			</div>
+			<div class="model_group_container">
+				<div class="model_group_info_container">
+					<div class="model_group_info">
+						<h1>LOAD ANALYSIS</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis accusamus sed aliquid, sit assumenda facere aperiam voluptate nemo dolorem, eaque ex, rerum? Doloribus a veritatis nemo hic modi. Quasi, reiciendis.</p>
+					</div>
+				</div>
+				<div class="model_img_container">
+					<img src="{{ url_for('static', filename='web_files/img/phaseBalance.png') }}" class="static" alt="">
+					<img src="{{ url_for('static', filename='web_files/img/test.gif') }}" class="gif" alt="">
+				</div>
+			</div>
+			<div class="model_group_container">
+				<div class="model_img_container">
+					<img src="{{ url_for('static', filename='web_files/img/phaseBalance.png') }}" class="static" alt="">
+					<img src="{{ url_for('static', filename='web_files/img/test.gif') }}" class="gif" alt="">
+				</div>
+				<div class="model_group_info_container">
+					<div class="model_group_info">
+						<h1>ENERGY STORAGE</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis accusamus sed aliquid, sit assumenda facere aperiam voluptate nemo dolorem, eaque ex, rerum? Doloribus a veritatis nemo hic modi. Quasi, reiciendis.</p>
+					</div>
+				</div>
+			</div>
+			<div class="model_group_container">
+				<div class="model_group_info_container">
+					<div class="model_group_info">
+						<h1>SOLAR</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis accusamus sed aliquid, sit assumenda facere aperiam voluptate nemo dolorem, eaque ex, rerum? Doloribus a veritatis nemo hic modi. Quasi, reiciendis.</p>
+					</div>
+				</div>
+
+				<div class="model_img_container">
+					<img src="{{ url_for('static', filename='web_files/img/phaseBalance.png') }}" class="static" alt="">
+					<img src="{{ url_for('static', filename='web_files/img/test.gif') }}" class="gif" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="partners">
+		<div class="banner"></div>
+		<span class="banner_words">Partners</span>
+		<div class="section_content">
+			<div id="partner_container">
+				<a href="#" target="_blank"><img src="{{ url_for('static', filename='web_files/img/partners/lbnl.png') }}" alt="lbnl"></a>
+				<a href="#" target="_blank"><img src="{{ url_for('static', filename='web_files/img/partners/nrel.png') }}" alt="nrel"></a>
+				<a href="#" target="_blank"><img src="{{ url_for('static', filename='web_files/img/partners/pnnl.png') }}" alt="pnnl"></a>
+				<a href="#" target="_blank"><img src="{{ url_for('static', filename='web_files/img/partners/doe.png') }}" alt="doe"></a>
+				<a href="#" target="_blank"><img src="{{ url_for('static', filename='web_files/img/partners/arpae.png') }}" alt="arpae"></a>
+				<a href="#" target="_blank"><img src="{{ url_for('static', filename='web_files/img/partners/slac.png') }}" alt="slac"></a>
+				<a href="#" target="_blank"><img src="{{ url_for('static', filename='web_files/img/partners/argonne.png') }}" alt="argonne"></a>
+				<a href="#" target="_blank"><img src="{{ url_for('static', filename='web_files/img/partners/cmu.png') }}" alt="cmu"></a>
+				<a href="#" target="_blank"><img src="{{ url_for('static', filename='web_files/img/partners/prosumerGrid.png') }}" alt="prosumerGrid"></a>
+				<a href="#" target="_blank"><img src="{{ url_for('static', filename='web_files/img/partners/sparkMeter.png') }}" alt="sparkMeter"></a>
+				<a href="#" target="_blank"><img src="{{ url_for('static', filename='web_files/img/partners/lanl.png') }}" alt="lanl"></a>
+				<a href="#" target="_blank"><img src="{{ url_for('static', filename='web_files/img/partners/eaton.png') }}" alt="eaton"></a>
+			</div>
+		</div>
+	</div>
+	</div>
+	<footer>
+		<span><a class="white_link" href="#">License</a></span>
+		<span><a class="white_link" href="#">Github</a></span>
+		<span><a class="white_link" href="#">Documentation</a></span>
+		<span><a class="white_link" href="#">Discussion</a></span>
+		<span><a class="white_link" href="#">Contact</a></span>
+	</footer>
 </body>
+</html>

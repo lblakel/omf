@@ -1,0 +1,33 @@
+* {
+  --scale: 1.3em;
+}
+
+#case {
+  display: inline-block;
+  height: var(--scale);
+  width: calc(1.75*var(--scale));
+  background: white;
+  border-radius: var(--scale);
+  border: calc(.1*var(--scale)) solid black;
+  position: relative;
+
+}
+
+#clicker {
+  position: absolute;
+  top: 0px;
+  width: calc(.8*var(--scale));
+  height: calc(.8*var(--scale));
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0px 0px 1px black;
+}
+
+.clicked {
+  right: 0px;
+  transition: right 1s;
+}
+
+.active {
+  background: teal !important;
+}
