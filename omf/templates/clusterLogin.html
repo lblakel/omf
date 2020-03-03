@@ -35,7 +35,7 @@
 <body>
 	<div id="header2">
 		<div id="logo_container2">
-			<a href="#"><img src="{{ url_for('static', filename='web_files/img/logo.svg') }}" alt=""></a>
+			<a href="#"><img src="{{ url_for('static', filename='web_files/img/logo3.svg') }}" alt=""></a>
 		</div>
 		<div class="header_links">
 			<span><a class="white_link" href="#">LOGIN</a></span>
@@ -46,7 +46,7 @@
 	</div>
 	<header>
 		<div id="logo_container">
-			<img src="{{ url_for('static', filename='web_files/img/logo.svg') }}" id="logo">
+			<img src="{{ url_for('static', filename='web_files/img/logo3.svg') }}" id="logo">
 		</div>
 		<div id="header_slice"></div>
 
@@ -89,9 +89,9 @@
 		<div class="section_content" id="about_info">
 			<p>The Open Modeling Framework is a platform that simulates power systems behavior with an emphasis on cost-benefit analysis of emerging technologies. The platform includes programs that model distributed generation, storage, and networked controls.</p>
 
-			<p>Our documentation is available <a class="inline_link" href="#">here</a>, discussions and questions can be posted <a class="inline_link" href="#">here</a>. If you are interested in seeing our code, or would like to download the framework locally, the full code base along with installation instructions can be found <a class="inline_link" href="#">here</a>.</p>
+			<p>Our documentation is available <a class="inline_link" href="https://github.com/dpinney/omf/wiki">here</a>, discussions and questions can be posted <a class="inline_link" href="https://groups.google.com/forum/#!forum/open-modeling-framework">here</a>. If you are interested in seeing our code, or would like to download the framework locally, the full code base along with installation instructions can be found <a class="inline_link" href="https://github.com/dpinney/omf">here</a>.</p>
 
-			<p>Since 2012, the OMF has worked with both public and private partners across the industry to transform cutting-edge research into applications that can be used by utilities and grid engineers. Our partners include The Department of Energy, Carnegie Mellon University, and a number of national labs.</p>
+			<p>Since 2012, OMF.coop has worked with both public and private partners across the industry to transform cutting-edge research into applications that can be used by utilities and grid engineers. Our partners include The Department of Energy, Carnegie Mellon University, and a number of national labs.</p>
 		</div>
 	</div>
 	<div id="models">
@@ -100,13 +100,13 @@
 		<div class="section_content" id="model_section_content">
 			<div class="model_group_container">
 				<div class="model_img_container">
-					<img src="{{ url_for('static', filename='web_files/img/phaseBalance.png') }}" class="static" alt="">
-					<img src="{{ url_for('static', filename='web_files/img/test.gif') }}" class="gif" alt="">
+					<img src="{{ url_for('static', filename='web_files/img/model_images/distribution_analysis.png') }}" class="static" alt="">
+					<img src="{{ url_for('static', filename='web_files/img/model_images/distribution_analysis.gif') }}" class="gif" alt="">
 				</div>
 				<div class="model_group_info_container">
 					<div class="model_group_info">
 						<h1>DISTRIBUTION ANALYSIS</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis accusamus sed aliquid, sit assumenda facere aperiam voluptate nemo dolorem, eaque ex, rerum? Doloribus a veritatis nemo hic modi. Quasi, reiciendis.</p>
+						<p>Calculate the expected costs and benefits for implementing conservation voltage reduction on a given feeder circuit or determine the most economical combination of solar, wind, and storage technologies to use in a microgrid.</p>
 					</div>
 				</div>
 			</div>
@@ -114,23 +114,23 @@
 				<div class="model_group_info_container">
 					<div class="model_group_info">
 						<h1>TRANSMISSION ANALYSIS</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis accusamus sed aliquid, sit assumenda facere aperiam voluptate nemo dolorem, eaque ex, rerum? Doloribus a veritatis nemo hic modi. Quasi, reiciendis.</p>
+						<p>Calculate the expected powerflow voltage results per bus on a given transmission circuit.</p>
 					</div>
 				</div>
 				<div class="model_img_container">
-					<img src="{{ url_for('static', filename='web_files/img/phaseBalance.png') }}" class="static" alt="">
-					<img src="{{ url_for('static', filename='web_files/img/test.gif') }}" class="gif" alt="">
+					<img src="{{ url_for('static', filename='web_files/img/model_images/transmission_analysis.png') }}" class="static" alt="">
+					<img src="{{ url_for('static', filename='web_files/img/model_images/transmission_analysis.gif') }}" class="gif" alt="">
 				</div>
 			</div>
 			<div class="model_group_container">
 				<div class="model_img_container">
-					<img src="{{ url_for('static', filename='web_files/img/phaseBalance.png') }}" class="static" alt="">
-					<img src="{{ url_for('static', filename='web_files/img/test.gif') }}" class="gif" alt="">
+					<img src="{{ url_for('static', filename='web_files/img/model_images/resilient_design.png') }}" class="static" alt="">
+					<img src="{{ url_for('static', filename='web_files/img/model_images/resilient_design.gif') }}" class="gif" alt="">
 				</div>
 				<div class="model_group_info_container">
 					<div class="model_group_info">
 						<h1>RESILIENT DESIGN</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis accusamus sed aliquid, sit assumenda facere aperiam voluptate nemo dolorem, eaque ex, rerum? Doloribus a veritatis nemo hic modi. Quasi, reiciendis.</p>
+						<p>Illustrate fault data, test the integrity of a feeder, and calculate outage costs given appropriate input data.</p>
 					</div>
 				</div>
 			</div>
@@ -138,23 +138,23 @@
 				<div class="model_group_info_container">
 					<div class="model_group_info">
 						<h1>LOAD ANALYSIS</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis accusamus sed aliquid, sit assumenda facere aperiam voluptate nemo dolorem, eaque ex, rerum? Doloribus a veritatis nemo hic modi. Quasi, reiciendis.</p>
+						<p>Leverage machine learning to predict load, view the financial effects of a direct load control system, or simulate the impact of demand charges in the absence of empirical data.</p>
 					</div>
 				</div>
 				<div class="model_img_container">
-					<img src="{{ url_for('static', filename='web_files/img/phaseBalance.png') }}" class="static" alt="">
-					<img src="{{ url_for('static', filename='web_files/img/test.gif') }}" class="gif" alt="">
+					<img src="{{ url_for('static', filename='web_files/img/model_images/load_analysis.png') }}" class="static" alt="">
+					<img src="{{ url_for('static', filename='web_files/img/model_images/load_analysis.gif') }}" class="gif" alt="">
 				</div>
 			</div>
 			<div class="model_group_container">
 				<div class="model_img_container">
-					<img src="{{ url_for('static', filename='web_files/img/phaseBalance.png') }}" class="static" alt="">
-					<img src="{{ url_for('static', filename='web_files/img/test.gif') }}" class="gif" alt="">
+					<img src="{{ url_for('static', filename='web_files/img/model_images/energy_storage.png') }}" class="static" alt="">
+					<img src="{{ url_for('static', filename='web_files/img/model_images/energy_storage.gif') }}" class="gif" alt="">
 				</div>
 				<div class="model_group_info_container">
 					<div class="model_group_info">
 						<h1>ENERGY STORAGE</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis accusamus sed aliquid, sit assumenda facere aperiam voluptate nemo dolorem, eaque ex, rerum? Doloribus a veritatis nemo hic modi. Quasi, reiciendis.</p>
+						<p>Test the value of potential revenue streams when leveraging storage. We test for arbitrage opportunities, equipment deferral, and peak shaving.</p>
 					</div>
 				</div>
 			</div>
@@ -162,13 +162,13 @@
 				<div class="model_group_info_container">
 					<div class="model_group_info">
 						<h1>SOLAR</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis accusamus sed aliquid, sit assumenda facere aperiam voluptate nemo dolorem, eaque ex, rerum? Doloribus a veritatis nemo hic modi. Quasi, reiciendis.</p>
+						<p>Simulate the effects of distributed generation on an input grid, easily use the SUNDA Solar Costing Financing Screening Tool with a friendly interface, or run the NREL pvWatts tool for a quick estimation of solar panel output.</p>
 					</div>
 				</div>
 
 				<div class="model_img_container">
-					<img src="{{ url_for('static', filename='web_files/img/phaseBalance.png') }}" class="static" alt="">
-					<img src="{{ url_for('static', filename='web_files/img/test.gif') }}" class="gif" alt="">
+					<img src="{{ url_for('static', filename='web_files/img/model_images/solar.png') }}" class="static" alt="">
+					<img src="{{ url_for('static', filename='web_files/img/model_images/solar.gif') }}" class="gif" alt="">
 				</div>
 			</div>
 		</div>
