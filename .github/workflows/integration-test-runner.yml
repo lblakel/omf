@@ -9,7 +9,9 @@ jobs:
     timeout-minutes: 120
     steps:
       - name: Install Dependencies
-        run: python3 -m pip install https://github.com/dpinney/omf/archive/install_update.zip
+        run: |
+          python3 -m pip install setuptools
+          python3 -m pip install https://github.com/dpinney/omf/archive/install_update.zip
       - name: Run Tests
         run: sudo python3 omf/runAllTests.py
   macOS:
