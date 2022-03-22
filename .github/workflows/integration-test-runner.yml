@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2 # Checkout whichever ref that triggered this workflow
       - name: Install Dependencies
         run: |
-          sudo python3 install.py
+          python3 setup.py install
       - name: Run Tests
         run: sudo python3 omf/runAllTests.py
   macOS:
@@ -23,7 +23,7 @@ jobs:
         run: |
           brew link --overwrite python@3.8 #already installed but python3.9 is default
           pip3 install ecos #because it's having trouble not going first
-          python3 install.py
+          python3 setup.py install
       - name: Run tests
         run: |
           python3 omf/runAllTests.py
@@ -45,7 +45,7 @@ jobs:
         run: |
           choco install python --no-progress --version 3.6.8
           choco install wget --no-progress
-          python install.py
+          python3 setup.py install
           # workaround for busted pygraphviz on windoze
           wget -nv --no-check-certificate "https://github.com/CristiFati/Prebuilt-Binaries/raw/master/PyGraphviz/v1.5/Graphviz-2.42.2/pygraphviz-1.5-cp37-cp37m-win_amd64.whl"
           python -m pip install pygraphviz-1.5-cp37-cp37m-win_amd64.whl
