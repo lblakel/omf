@@ -11,6 +11,7 @@ jobs:
       - name: Install Dependencies
         run: |
           python3 -m pip install setuptools
+          python3 -m pip install --upgrade pip
           python3 -m pip install https://github.com/dpinney/omf/archive/install_update.zip
       - name: Run Tests
         run: sudo python3 omf/runAllTests.py
@@ -22,6 +23,7 @@ jobs:
         run: |
           brew link --overwrite python@3.8 #already installed but python3.9 is default
           pip3 install ecos #because it's having trouble not going first
+          python3 -m pip install --upgrade pip
           python3 -m pip install https://github.com/dpinney/omf/archive/install_update.zip
       - name: Run tests
         run: |
@@ -42,8 +44,9 @@ jobs:
         continue-on-error: true
         run: |
           choco install python --no-progress --version 3.6.8
+          python -m pip install --upgrade pip
           choco install wget --no-progress
-          python3 -m pip install https://github.com/dpinney/omf/archive/install_update.zip
+          python -m pip install https://github.com/dpinney/omf/archive/install_update.zip
           # workaround for busted pygraphviz on windoze
           wget -nv --no-check-certificate "https://github.com/CristiFati/Prebuilt-Binaries/raw/master/PyGraphviz/v1.5/Graphviz-2.42.2/pygraphviz-1.5-cp37-cp37m-win_amd64.whl"
           python -m pip install pygraphviz-1.5-cp37-cp37m-win_amd64.whl

@@ -59,8 +59,6 @@ def system_install():
 		# os.system(f"unzip '{source_dir}/omf/solvers/matpower7.0.zip' -d {source_dir}/omf/solvers/")
 		os.system(f'octave-cli --no-gui -p "{source_dir}/omf/solvers/matpower7.0" --eval "install_matpower(1,1,1)"')
 		os.system("cd omf")
-		os.system("pip3 install --upgrade pip setuptools")
-		pipInstallInOrder("pip3")
 		# os.system("python3 setup.py develop")
 	elif platform.system() == "Linux" and platform.linux_distribution()[0] in ["CentOS Linux",""]:
 		# TODO: Double check CentOS installation to support Python 3.7 or up
@@ -79,8 +77,6 @@ def system_install():
 		# os.system(f"unzip '{source_dir}/omf/solvers/matpower7.0.zip' -d {source_dir}/omf/solvers/")
 		os.system(f'octave-cli --no-gui -p "{source_dir}/omf/solvers/matpower7.0" --eval "install_matpower(1,1,1)"')
 		os.system("cd omf")
-		os.system("python3 -m pip install --upgrade pip")
-		pipInstallInOrder("python3 -m pip")
 		os.system("python3 -m pip install --ignore-installed six")
 		# os.system("python3 setup.py develop")
 	elif platform.system()=='Windows':
@@ -112,10 +108,6 @@ def system_install():
 		os.system("wget --no-check-certificate https://github.com/CristiFati/Prebuilt-Binaries/blob/667f5add9c244096d6ecfb44e510b4ab20b93cac/PyGraphviz/v1.6/pygraphviz-1.6-cp39-cp39-win_amd64.whl")
 		os.system('python -m pip install pygraphviz-1.6-cp39-cp39-win_amd64.whl')
 		# os.system('python -m pip install omf\\static\\pygraphviz-1.5-cp36-cp36m-win_amd64.whl')
-		# Finish up installation with pip.
-		pipInstallInOrder("python -m pip")
-		# os.system("python setup.py develop")
-		# os.system("refreshenv") # Refresh local environment variables via choco tool.
 	elif platform.system()=="Darwin": # MacOS
 		# Install homebrew
 		os.system("HOMEBREW_NO_AUTO_UPDATE=1 brew install wget ffmpeg git graphviz octave mdbtools") # Set no-update to keep homebrew from blowing away python3.
@@ -138,8 +130,6 @@ def system_install():
 		os.system("cd omf")
 		# os.system('pip3 install ecos')
 		os.system('pip3 install pygraphviz --install-option="--include-path=/usr/local/include/graphviz" --install-option="--library-path=/usr/local/lib/graphviz/"')
-		pipInstallInOrder("pip3")
-		# os.system("python3 setup.py develop")
 	else:
 		print("Your operating system is not currently supported. Platform detected: " + str(platform.system()) + str(platform.linux_distribution()))
 
