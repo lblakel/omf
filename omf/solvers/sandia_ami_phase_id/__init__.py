@@ -1185,7 +1185,8 @@ def main(voltageInputCust, phaseLabelsTrue, phaseLabelsErrors, custIDInput, outp
 		print(accuracy_report)
 	# Calculate and Plot the confidence scores - Modified Silhouette Coefficients
 	allSC = Calculate_ModifiedSilhouetteCoefficients(caMatrix,clusteredIDs,finalClusterLabels,predictedPhases,kFinal)
-	Plot_ModifiedSilhouetteCoefficients(allSC) # Plot and save modified silhouette score histogram plot
+	# Plot
+	Plot_ModifiedSilhouetteCoefficients(allSC)
 
 	if phaseLabelsTrue is not None:
 		phaseLabelsOrg_FullList, phaseLabelsPred_FullList,allFinalClusterLabels, phaseLabelsTrue_FullList,custID_FullList, allSC_FullList = CreateFullListCustomerResults_CAEns(clusteredPhaseLabels,phaseLabelsErrors,finalClusterLabels,clusteredIDs,custIDInput,noVotesIDs,predictedPhases,allSC,phaseLabelsTrue=clusteredTruePhaseLabels)
